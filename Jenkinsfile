@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Git Pulling') {
             steps {
-                git branch: 'master', url: 'https://github.com/mdmokchhedulislam/3-Tier-project.git'
+                git branch: 'main', url: 'https://github.com/mdmokchhedulislam/3-Tier-project.git'
             }
         }
         stage('Init') {

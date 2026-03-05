@@ -1,5 +1,3 @@
-
-
 resource "aws_s3_bucket" "frontend" {
   bucket = "${var.project_name}-bucket"
 
@@ -18,7 +16,6 @@ resource "aws_s3_bucket_public_access_block" "frontend_block" {
   restrict_public_buckets = false
 }
 
-
 resource "aws_s3_bucket_policy" "frontend_policy" {
   bucket = aws_s3_bucket.frontend.id
 
@@ -33,9 +30,9 @@ resource "aws_s3_bucket_policy" "frontend_policy" {
       }
     ]
   })
+
+  depends_on = [aws_s3_bucket_public_access_block.frontend_block]
 }
-
-
 # resource "aws_s3_bucket_ownership_controls" "frontend" {
 #   bucket = aws_s3_bucket.frontend.id
 

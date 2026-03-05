@@ -9,14 +9,15 @@ resource "aws_s3_bucket" "frontend" {
   }
 }
 
+resource "aws_s3_bucket_public_access_block" "frontend_block" {
+  bucket = aws_s3_bucket.frontend.id
 
-# resource "aws_s3_bucket_ownership_controls" "frontend" {
-#   bucket = aws_s3_bucket.frontend.id
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
 
-#   rule {
-#     object_ownership = "BucketOwnerEnforced"
-#   }
-# }
 
 resource "aws_s3_bucket_policy" "frontend_policy" {
   bucket = aws_s3_bucket.frontend.id
@@ -34,6 +35,14 @@ resource "aws_s3_bucket_policy" "frontend_policy" {
   })
 }
 
+
+# resource "aws_s3_bucket_ownership_controls" "frontend" {
+#   bucket = aws_s3_bucket.frontend.id
+
+#   rule {
+#     object_ownership = "BucketOwnerEnforced"
+#   }
+# }
 
 
 # resource "aws_cloudfront_origin_access_identity" "frontend_oai" {

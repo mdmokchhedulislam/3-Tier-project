@@ -9,11 +9,10 @@ variable "vpc_cidr" {
 variable "env" {
   type = string
 }
+
 variable "aws_region" {
   type = string
 }
-
-
 
 variable "public_subnets" {
   type = map(object({
@@ -29,7 +28,6 @@ variable "private_subnets" {
   }))
 }
 
-
 variable "ami_id" {
   type = string
 }
@@ -37,6 +35,7 @@ variable "ami_id" {
 variable "instance_type" {
   type = string
 }
+
 variable "subnet_id" {
   type = string
 }

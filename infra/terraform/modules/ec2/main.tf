@@ -64,7 +64,7 @@ resource "aws_launch_template" "app_lt" {
   name_prefix   = "app-server-"
   image_id      = var.ami_id
   instance_type = "t3.micro"
-  key_name      = "my-key"
+  key_name      = "var.key_name"
 
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
 

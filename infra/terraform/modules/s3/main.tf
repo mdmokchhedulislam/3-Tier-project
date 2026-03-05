@@ -10,13 +10,13 @@ resource "aws_s3_bucket" "frontend" {
 }
 
 
-resource "aws_s3_bucket_ownership_controls" "frontend" {
-  bucket = aws_s3_bucket.frontend.id
+# resource "aws_s3_bucket_ownership_controls" "frontend" {
+#   bucket = aws_s3_bucket.frontend.id
 
-  rule {
-    object_ownership = "BucketOwnerEnforced"
-  }
-}
+#   rule {
+#     object_ownership = "BucketOwnerEnforced"
+#   }
+# }
 
 resource "aws_s3_bucket_policy" "frontend_policy" {
   bucket = aws_s3_bucket.frontend.id
